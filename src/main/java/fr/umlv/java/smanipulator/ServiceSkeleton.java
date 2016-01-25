@@ -5,7 +5,7 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 
 /**
- *
+ * Skeleton de webService
  * @author Besnard Arthur
  */
 public class ServiceSkeleton extends AbstractVerticle {
@@ -15,12 +15,13 @@ public class ServiceSkeleton extends AbstractVerticle {
         Router router = Router.router(vertx);
         
         /*
-        Ici on definit les differentes URI et comment elles seront gerrés par vertx à l'aide du Handler. 
+        Ici on definit les differentes URI et comment elles seront gerrés par vertx a l'aide du Handler. 
         Ici il s'agit d'une méthode get car il n'y a pas de modifications des donnés au niveau du service.
         Les parties de l'URI contenant des ":" sont des paramètres.
         */
         
-        router.get("/hello/world/:name").handler(rc -> {
+        router.get("/hello/world/:name/").handler(rc -> {
+            //Recuperation du parametre name
             String name = rc.request().getParam("name");
 
             rc.response()
@@ -28,6 +29,10 @@ public class ServiceSkeleton extends AbstractVerticle {
                     .end(new JsonObject().put("key", "Bonjour " + name).encode());
         });
 
+        /*
+        Ici on définit la methode appelee lors de l'ecoute et sur quel port 
+        cette écoute s'effectue
+        */
         vertx.createHttpServer().requestHandler(router::accept).listen(8080);
     }
 }
