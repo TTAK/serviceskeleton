@@ -1,4 +1,4 @@
-package fr.umlv.java.smanipulator;
+package fr.umlv.java.serviceskeleton;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.json.JsonObject;
