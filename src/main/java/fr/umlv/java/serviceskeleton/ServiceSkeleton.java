@@ -14,11 +14,6 @@ public class ServiceSkeleton extends AbstractVerticle {
     public void start() {
         Router router = Router.router(vertx);
         
-        /*
-        Ici on definit les differentes URI et comment elles seront gerrés par vertx a l'aide du Handler. 
-        Ici il s'agit d'une méthode get car il n'y a pas de modifications des donnés au niveau du service.
-        Les parties de l'URI contenant des ":" sont des paramètres.
-        */
         
         router.get("/hello/world/:name/").handler(rc -> {
             //Recuperation du parametre name
